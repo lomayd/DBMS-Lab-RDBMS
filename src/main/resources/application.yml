@@ -1,23 +1,17 @@
 spring:
-  datasource:
-    url: jdbc:mysql://127.0.0.1:3306/RDBMS_MYSQL
+  oracle:
+    username: system
+    password: oracle
+    jdbcUrl: jdbc:oracle:thin:@127.0.0.1:1521:XE/lab_oracle
+  mysql:
     username: root
     password:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa:
-    hibernate:
-      use-new-id-generator-mappings: false
-      ddl-auto: update
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    show-sql: true
-    database: mysql
-    properties:
-      hibernate:
-        format_sql: true
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
-server:
-  error:
-    include-message: always
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/lab_mysql
+  mssql:
+    username: sa
+    password:
+    jdbcUrl: jdbc:sqlserver://127.0.0.1:1433/lab_mssql
+  postgresql:
+    username: root
+    password:
+    jdbcUrl: jdbc:postgresql://127.0.0.1:5432/lab_postgresql
