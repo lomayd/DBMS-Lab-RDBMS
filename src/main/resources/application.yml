@@ -1,17 +1,28 @@
 spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+      show-sql: true
   oracle:
     username: system
     password: oracle
-    jdbcUrl: jdbc:oracle:thin:@127.0.0.1:1521:XE/lab_oracle
+    jdbc-url: jdbc:oracle:thin:@127.0.0.1:1521:xe
+    driver-class-name: oracle.jdbc.OracleDriver
   mysql:
     username: root
     password:
-    jdbcUrl: jdbc:mysql://127.0.0.1:3306/lab_mysql
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/lab_mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
   mssql:
     username: sa
     password:
-    jdbcUrl: jdbc:sqlserver://127.0.0.1:1433/lab_mssql
+    jdbc-url: jdbc:sqlserver://127.0.0.1:1433;encrypt=false;DatabaseName=lab_mssql
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
   postgresql:
     username: root
     password:
-    jdbcUrl: jdbc:postgresql://127.0.0.1:5432/lab_postgresql
+    jdbc-url: jdbc:postgresql://127.0.0.1:5432/lab_postgresql
+    driver-class-name: org.postgresql.Driver
+
+  main:
+    allow-bean-definition-overriding: true
