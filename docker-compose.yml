@@ -1,5 +1,12 @@
 version: '3.1'
 services:
+  # Ports are not available Error 발생시 (netstat -ano | findstr {PORT NO.} 해도 아무것도 안 나올 때):
+  # PowerShell(관리자 권한으로 실행)
+  # netsh interface ipv4 show excludedportrange protocol=tcp
+  # net stop winnat
+  # netsh int ipv4 add excludedportrange protocol=tcp startport={PORT NO.} numberofports=1
+  # net start winnat
+
   # oracle 사용 방법:
   # docker login
   # docker compose up -d (terminal)
@@ -11,6 +18,7 @@ services:
     image: jaspeen/oracle-xe-11g
     ports:
       - "1521:1521"
+
   mysql:
     container_name: mysql
     image: mysql:latest
@@ -19,6 +27,7 @@ services:
     environment:
       MYSQL_ROOT_USERNAME: root
       MYSQL_ROOT_PASSWORD:
+
   # mssql username: sa, password는 너무 짧거나 간단하면 보안상의 문제로 작동 안됌(8자리 이상의 영문, 숫자, 특수문자 권장)
   mssql:
     container_name: mssql
@@ -28,6 +37,7 @@ services:
     environment:
       ACCEPT_EULA: Y
       SA_PASSWORD:
+
   postgresql:
     container_name: postgresql
     image: postgres:latest
