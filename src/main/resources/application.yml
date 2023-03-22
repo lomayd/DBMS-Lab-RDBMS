@@ -1,8 +1,4 @@
 spring:
-  jpa:
-    hibernate:
-      ddl-auto: create
-      show-sql: true
   oracle:
     username: system
     password: oracle
@@ -11,17 +7,17 @@ spring:
   mysql:
     username: root
     password:
-    jdbc-url: jdbc:mysql://127.0.0.1:3306/lab_mysql
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/LAB
     driver-class-name: com.mysql.cj.jdbc.Driver
   mssql:
     username: sa
     password:
-    jdbc-url: jdbc:sqlserver://127.0.0.1:1433;encrypt=false;DatabaseName=lab_mssql
+    jdbc-url: jdbc:sqlserver://127.0.0.1:1433;encrypt=false;DatabaseName=LAB
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
   postgresql:
     username: root
     password:
-    jdbc-url: jdbc:postgresql://127.0.0.1:5432/lab_postgresql
+    jdbc-url: jdbc:postgresql://127.0.0.1:5432/LAB
     driver-class-name: org.postgresql.Driver
 
   main:
