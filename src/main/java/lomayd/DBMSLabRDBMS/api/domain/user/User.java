@@ -1,8 +1,15 @@
 package lomayd.DBMSLabRDBMS.api.domain.user;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Entity
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
