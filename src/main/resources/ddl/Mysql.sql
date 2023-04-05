@@ -4,7 +4,7 @@ CREATE DATABASE LAB;
 
 USE LAB;
 
-CREATE TABLE User
+CREATE TABLE mysqluser
 (
     id varchar(255),
     password varchar(255),

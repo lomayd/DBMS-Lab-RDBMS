@@ -1,4 +1,4 @@
-package lomayd.DBMSLabRDBMS.api.global.datasource.config;
+package lomayd.DBMSLabRDBMS.api.domain.user.mysql.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -19,7 +19,7 @@ import java.util.HashMap;
 @Configuration
 @PropertySource({ "classpath:application.yml" })
 @EnableJpaRepositories(
-        basePackages = "lomayd.DBMSLabRDBMS.api.domain.user.repository",
+        basePackages = "lomayd.DBMSLabRDBMS.api.domain.user.mysql.repository",
         entityManagerFactoryRef = "mysqlEntityManager",
         transactionManagerRef = "mysqlTransactionManager"
 )
@@ -33,7 +33,7 @@ public class MysqlConfig {
         em.setDataSource(mysqlDataSource());
 
         //Entity 패키지 경로
-        em.setPackagesToScan(new String[] { "lomayd.DBMSLabRDBMS.api.domain.user" });
+        em.setPackagesToScan(new String[] { "lomayd.DBMSLabRDBMS.api.domain.user.mysql" });
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);

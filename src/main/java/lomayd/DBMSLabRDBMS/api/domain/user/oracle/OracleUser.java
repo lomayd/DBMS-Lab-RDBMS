@@ -1,8 +1,11 @@
-package lomayd.DBMSLabRDBMS.api.domain.user;
+package lomayd.DBMSLabRDBMS.api.domain.user.oracle;
 
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Builder
@@ -10,7 +13,8 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+@Table(name="oracleuser",schema = "SYSTEM")
+public class OracleUser {
 
     @Id
     private String id;

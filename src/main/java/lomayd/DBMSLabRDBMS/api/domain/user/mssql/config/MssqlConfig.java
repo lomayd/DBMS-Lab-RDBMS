@@ -1,11 +1,10 @@
-package lomayd.DBMSLabRDBMS.api.global.datasource.config;
+package lomayd.DBMSLabRDBMS.api.domain.user.mssql.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -20,22 +19,21 @@ import java.util.HashMap;
 @Configuration
 @PropertySource({ "classpath:application.yml" })
 @EnableJpaRepositories(
-        basePackages = "lomayd.DBMSLabRDBMS.api.domain.user.repository",
-        entityManagerFactoryRef = "oracleEntityManager",
-        transactionManagerRef = "oracleTransactionManager"
+        basePackages = "lomayd.DBMSLabRDBMS.api.domain.user.mssql.repository",
+        entityManagerFactoryRef = "mssqlEntityManager",
+        transactionManagerRef = "mssqlTransactionManager"
 )
-public class OracleConfig {
+public class MssqlConfig {
     @Autowired
     private Environment env;
 
     @Bean
-    @Primary
-    public LocalContainerEntityManagerFactoryBean oracleEntityManager() {
+    public LocalContainerEntityManagerFactoryBean mssqlEntityManager() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-        em.setDataSource(oracleDataSource());
+        em.setDataSource(mssqlDataSource());
 
         //Entity 패키지 경로
-        em.setPackagesToScan(new String[] { "lomayd.DBMSLabRDBMS.api.domain.user" });
+        em.setPackagesToScan(new String[] { "lomayd.DBMSLabRDBMS.api.domain.user.mssql" });
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -48,18 +46,16 @@ public class OracleConfig {
         return em;
     }
 
-    @Primary
     @Bean
-    @ConfigurationProperties(prefix="spring.oracle")
-    public DataSource oracleDataSource() {
+    @ConfigurationProperties(prefix="spring.mssql")
+    public DataSource mssqlDataSource() {
         return DataSourceBuilder.create().build();
     }
 
-    @Primary
     @Bean
-    public PlatformTransactionManager oracleTransactionManager() {
+    public PlatformTransactionManager mssqlTransactionManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(oracleEntityManager().getObject());
+        transactionManager.setEntityManagerFactory(mssqlEntityManager().getObject());
         return transactionManager;
     }
 }

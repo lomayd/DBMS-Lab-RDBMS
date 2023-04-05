@@ -1,8 +1,8 @@
-package lomayd.DBMSLabRDBMS.api.domain.user.dto;
+package lomayd.DBMSLabRDBMS.api.domain.user.mssql.dto;
 
 import lombok.*;
 
-public class UserRequestDto {
+public class MssqlUserRequestDto {
 
     @Builder
     @Getter

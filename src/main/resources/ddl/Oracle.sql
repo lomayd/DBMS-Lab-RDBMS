@@ -1,7 +1,8 @@
 -- Oracle은 SYSTEM 스키마 안에서 Table 생성됌
 -- 예약어는 "" 쓰기
+-- 테이블 대문자 권장
 
-CREATE TABLE "User"
+CREATE TABLE oracleuser
 (
     id varchar(255),
     password varchar(255),

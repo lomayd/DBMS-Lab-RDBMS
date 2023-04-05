@@ -17,7 +17,7 @@ spring:
   postgresql:
     username: root
     password:
-    jdbc-url: jdbc:postgresql://127.0.0.1:5432/LAB
+    jdbc-url: jdbc:postgresql://127.0.0.1:5432/lab
     driver-class-name: org.postgresql.Driver
 
   main:

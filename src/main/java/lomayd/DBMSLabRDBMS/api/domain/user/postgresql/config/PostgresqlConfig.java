@@ -1,4 +1,4 @@
-package lomayd.DBMSLabRDBMS.api.global.datasource.config;
+package lomayd.DBMSLabRDBMS.api.domain.user.postgresql.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -19,7 +19,7 @@ import java.util.HashMap;
 @Configuration
 @PropertySource({ "classpath:application.yml" })
 @EnableJpaRepositories(
-        basePackages = "lomayd.DBMSLabRDBMS.api.domain.user.repository",
+        basePackages = "lomayd.DBMSLabRDBMS.api.domain.user.postgresql.repository",
         entityManagerFactoryRef = "postgresqlEntityManager",
         transactionManagerRef = "postgresqlTransactionManager"
 )
@@ -33,7 +33,7 @@ public class PostgresqlConfig {
         em.setDataSource(postgresqlDataSource());
 
         //Entity 패키지 경로
-        em.setPackagesToScan(new String[] { "lomayd.DBMSLabRDBMS.api.domain.user" });
+        em.setPackagesToScan(new String[] { "lomayd.DBMSLabRDBMS.api.domain.user.postgresql" });
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
